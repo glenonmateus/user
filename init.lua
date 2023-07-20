@@ -17,12 +17,10 @@ return {
                 return "yaml.ansible"
             end
             -- ansible-lint
-            local ansible_lint, error = io.open(".ansible-lint")
+            local ansible_lint = io.open(".ansible-lint")
             if ansible_lint ~= nil then
                 io.close(ansible_lint)
                 return "yaml.ansible"
-            else
-                print("Error to open file: " .. error)
             end
             -- return yaml if nothing else
             return "yaml"
